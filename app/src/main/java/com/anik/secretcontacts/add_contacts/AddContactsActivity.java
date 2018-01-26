@@ -118,7 +118,7 @@ public class AddContactsActivity extends AppCompatActivity {
 
         else {
             loading = new ProgressDialog(this);
-            // loading.setIcon(R.drawable.wait_icon);
+            loading.setIcon(R.drawable.wait_icon);
             loading.setTitle("Adding");
             loading.setMessage("Please wait....");
             loading.show();

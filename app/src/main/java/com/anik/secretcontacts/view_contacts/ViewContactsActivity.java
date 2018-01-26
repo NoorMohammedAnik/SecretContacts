@@ -80,7 +80,7 @@ public class ViewContactsActivity extends AppCompatActivity {
 
         //for showing progress dialog
         loading = new ProgressDialog(ViewContactsActivity.this);
-       // loading.setIcon(R.drawable.wait_icon);
+        loading.setIcon(R.drawable.wait_icon);
         loading.setTitle("Loading");
         loading.setMessage("Please wait....");
         loading.show();
