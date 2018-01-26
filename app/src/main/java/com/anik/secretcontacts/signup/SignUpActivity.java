@@ -18,7 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.anik.secretcontacts.Key;
+import com.anik.secretcontacts.MyKey;
 import com.anik.secretcontacts.LoginActivity;
 import com.anik.secretcontacts.R;
 
@@ -98,7 +98,7 @@ public class SignUpActivity extends AppCompatActivity {
             loading.show();
 
 
-            StringRequest stringRequest=new StringRequest(Request.Method.POST, Key.SIGNUP_URL, new Response.Listener<String>() {
+            StringRequest stringRequest=new StringRequest(Request.Method.POST, MyKey.SIGNUP_URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
 
@@ -110,7 +110,7 @@ public class SignUpActivity extends AppCompatActivity {
                         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                         Toast.makeText(SignUpActivity.this, "Sign up successful", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
-                    } else if (response.equals("exist")) {
+                    } else if (response.equals("exists")) {
 
                         Toast.makeText(SignUpActivity.this, "User already exists!", Toast.LENGTH_SHORT).show();
                         loading.dismiss();
@@ -140,9 +140,9 @@ public class SignUpActivity extends AppCompatActivity {
                     Map<String, String> params = new HashMap<>();
                     //Adding parameters to request
 
-                    params.put(Key.KEY_NAME, name);
-                    params.put(Key.KEY_CELL, cell);
-                    params.put(Key.KEY_PASSWORD, password);
+                    params.put(MyKey.KEY_NAME, name);
+                    params.put(MyKey.KEY_CELL, cell);
+                    params.put(MyKey.KEY_PASSWORD, password);
 
 
                     Log.d("info",""+name+" "+cell);

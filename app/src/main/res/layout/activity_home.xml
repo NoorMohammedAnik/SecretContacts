@@ -5,28 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/background"
     tools:context="com.anik.secretcontacts.home.HomeActivity">
 
 
-    <Button
-        android:id="@+id/btn_show_contact"
+    <LinearLayout
+        android:id="@+id/layout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="103dp"
-        android:text="View Contacts" />
+        android:layout_height="150dp"
+        android:layout_below="@id/layout1"
+        android:background="@android:drawable/zoom_plate"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_add_contact"
+        <Button
+            android:id="@+id/btn_add_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:drawable/menuitem_background"
+            android:drawableLeft="@mipmap/ic_phone"
+            android:text="Add Contact"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_show_contact"
-        android:layout_alignStart="@+id/btn_show_contact"
-        android:layout_below="@+id/btn_show_contact"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="103dp"
-        android:text="Add Contacts" />
+        android:layout_height="150dp"
+        android:background="@android:drawable/zoom_plate"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:drawable/menuitem_background"
+            android:drawableLeft="@mipmap/ic_phone"
+            android:text="View Contact"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/layout2"
+        android:background="@android:drawable/zoom_plate"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_signout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:drawable/menuitem_background"
+            android:drawableLeft="@mipmap/ic_phone"
+            android:text="Sign out"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </RelativeLayout>

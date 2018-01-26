@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anik.secretcontacts">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +21,8 @@
         <activity android:name=".signup.SignUpActivity" />
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".view_contacts.ViewContactsActivity" />
-        <activity android:name=".add_contacts.AddContactsActivity"></activity>
+        <activity android:name=".add_contacts.AddContactsActivity" />
+        <activity android:name=".view_contacts.ContactsDetailsActivity"></activity>
     </application>
 
 </manifest>

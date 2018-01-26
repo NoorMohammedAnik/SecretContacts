@@ -1,7 +1,9 @@
 package com.anik.secretcontacts;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -91,13 +93,13 @@ public class LoginActivity extends AppCompatActivity {
         else {
 
             loading = new ProgressDialog(this);
-            loading.setIcon(R.drawable.wait_icon);
+           // loading.setIcon(R.drawable.wait_icon);
             loading.setTitle("Login");
             loading.setMessage("Please wait....");
             loading.show();
 
             //Creating a string request
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, Key.LOGIN_URL,
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, MyKey.LOGIN_URL,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -106,6 +108,16 @@ public class LoginActivity extends AppCompatActivity {
                             //If we are getting success from server
                             if (response.equals("success")) {
                                 //Creating a shared preference
+
+                                SharedPreferences sp = LoginActivity.this.getSharedPreferences(MyKey.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+                                //Creating editor to store values to shared preferences
+                                SharedPreferences.Editor editor = sp.edit();
+                                //Adding values to editor
+                                editor.putString(MyKey.CELL_SHARED_PREF, cell);
+
+                                //Saving values to editor
+                                editor.commit();
 
                                 loading.dismiss();
                                 //Starting profile activity
@@ -148,8 +160,8 @@ public class LoginActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
                     //Adding parameters to request
-                    params.put(Key.KEY_CELL, cell);
-                    params.put(Key.KEY_PASSWORD, password);
+                    params.put(MyKey.KEY_CELL, cell);
+                    params.put(MyKey.KEY_PASSWORD, password);
 
                     //returning parameter
                     return params;
