@@ -28,9 +28,14 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
+
+    //EditText object declaration
     EditText etxtCell,etxtPassword;
 
+
+    //Button object declaration
     Button btnSignUp,btnLogin;
+    //ProgressDialog object declaration
     private ProgressDialog loading;
 
     @Override
@@ -38,25 +43,28 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Link up to java object toxml Button id
         btnSignUp=(Button)findViewById(R.id.btn_signup);
         btnLogin=(Button)findViewById(R.id.btn_login);
 
 
+        //Link up to java object to xml EditText id
         etxtCell=(EditText)findViewById(R.id.etxt_cell);
         etxtPassword=(EditText)findViewById(R.id.etxt_password);
 
 
-
+        //Click listener in Login Button
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //login function
+                //Call login function
                 login();
 
             }
         });
 
+        //Click listener in Signup Button
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
+     //Login function
     private void login() {
         //Getting values from edit texts
         final String cell = etxtCell.getText().toString().trim();
@@ -120,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.commit();
 
                                 loading.dismiss();
-                                //Starting profile activity
+                                //Starting Home activity
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(intent);
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();

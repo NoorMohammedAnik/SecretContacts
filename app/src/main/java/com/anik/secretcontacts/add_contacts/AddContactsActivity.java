@@ -31,6 +31,8 @@ import java.util.Map;
 
 public class AddContactsActivity extends AppCompatActivity {
 
+
+    //Java object declaration
     Button btnSave;
     EditText etxtName,etxtCell,etxtEmail;
     private ProgressDialog loading;
@@ -42,8 +44,8 @@ public class AddContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contacts);
 
+        //Link to java and xml id
         btnSave=(Button)findViewById(R.id.btn_save);
-
         etxtName=(EditText)findViewById(R.id.etxt_name);
         etxtCell=(EditText)findViewById(R.id.etxt_cell);
         etxtEmail=(EditText)findViewById(R.id.etxt_email);
@@ -72,7 +74,7 @@ public class AddContactsActivity extends AppCompatActivity {
 
 
                                 // Perform Your Task Here--When Yes Is Pressed.
-                                SaveContact();
+                                SaveContact(); //call SaveContact function
                                 dialog.cancel();
                             }
                         })
@@ -93,7 +95,7 @@ public class AddContactsActivity extends AppCompatActivity {
 
 
 
-    //update contact method
+    //Save contact method
     public void  SaveContact()
     {
 
