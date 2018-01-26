@@ -129,28 +129,30 @@ public class ViewContactsActivity extends AppCompatActivity {
                 //imgNoData.setImageResource(R.drawable.nodata);
             }
 
-            for (int i = 0; i < result.length(); i++) {
-                JSONObject jo = result.getJSONObject(i);
-                String id = jo.getString(MyKey.KEY_ID);
-                String name = jo.getString(MyKey.KEY_NAME);
-                String cell = jo.getString(MyKey.KEY_CELL);
-                String email = jo.getString(MyKey.KEY_EMAIL);
+            else {
 
-                //insert data into array for put extra
-                userID[i]=id;
-                userName[i]=name;
-                userCell[i]=cell;
-                userEmail[i]=email;
+                for (int i = 0; i < result.length(); i++) {
+                    JSONObject jo = result.getJSONObject(i);
+                    String id = jo.getString(MyKey.KEY_ID);
+                    String name = jo.getString(MyKey.KEY_NAME);
+                    String cell = jo.getString(MyKey.KEY_CELL);
+                    String email = jo.getString(MyKey.KEY_EMAIL);
 
-                //put value into Hashmap
-                HashMap<String, String> user_data = new HashMap<>();
-                user_data.put(MyKey.KEY_NAME,name);
-                user_data.put(MyKey.KEY_CELL,cell);
-                user_data.put(MyKey.KEY_EMAIL,email);
+                    //insert data into array for put extra
+                    userID[i] = id;
+                    userName[i] = name;
+                    userCell[i] = cell;
+                    userEmail[i] = email;
 
-                list.add(user_data);
+                    //put value into Hashmap
+                    HashMap<String, String> user_data = new HashMap<>();
+                    user_data.put(MyKey.KEY_NAME, name);
+                    user_data.put(MyKey.KEY_CELL, cell);
+                    user_data.put(MyKey.KEY_EMAIL, email);
+
+                    list.add(user_data);
+                }
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
